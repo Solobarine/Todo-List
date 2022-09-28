@@ -22,6 +22,8 @@ To get a local copy up and running follow these simple example steps.
 * Unzip the file: to-do-list.zip
 * Open index.html with your web browser
 * (Optional) You should have Node.js for work on the application running properly.
+### OR
+* Run this command on your local machine: git clone https://github.com/Solobarine/Todo-List.git
 
 ## Authors
 

@@ -6,34 +6,34 @@ const todoList = document.querySelector('#display-tasks');
 
 // Create Array to Populate DOM
 const taskList = [{
-  didComplete: 'false',
-  task: 'Clean My Room',
-  number: 0,
+  completed: 'false',
+  description: 'Clean My Room',
+  index: 0,
 },
 {
-  didComplete: 'false',
-  task: 'Feed the Chickens',
-  number: 1,
+  completed: 'false',
+  description: 'Feed the Chickens',
+  index: 1,
 },
 {
-  didComplete: 'false',
-  task: 'Finish Yesterday"s Project',
-  number: 2,
+  completed: 'false',
+  description: 'Finish Yesterday"s Project',
+  index: 2,
 },
 {
-  didComplete: 'false',
-  task: 'Wash dirty clothes',
-  number: 3,
+  completed: 'false',
+  description: 'Wash dirty clothes',
+  index: 3,
 },
 {
-  didComplete: 'false',
-  task: 'Cook',
-  number: 4,
+  completed: 'false',
+  description: 'Cook',
+  index: 4,
 },
 {
-  didComplete: 'false',
-  task: 'Watch todays Game',
-  number: 5,
+  completed: 'false',
+  description: 'Watch todays Game',
+  index: 5,
 },
 ];
 
@@ -42,7 +42,7 @@ function populate() {
   for (let index = 0; index < taskList.length; index++) { // eslint-disable-line
     todoList.innerHTML += `<div id="shell">
       <input type="checkbox" id="check"/>
-      <p id="task">${taskList[index].task}</p>
+      <p id="task">${taskList[index].description}</p>
       <button id="del-list">Remove</button>
       </div>`;
   }
