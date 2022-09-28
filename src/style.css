@@ -1,0 +1,32 @@
+#container {
+  background-color: #1c1a19;
+}
+
+#display-tasks {
+  align-content: center;
+  padding: 8%;
+}
+
+#shell {
+  display: grid;
+  grid-template-columns: 5% 80% 15%;
+  width: 75%;
+  background-color: #ffe;
+  margin-left: 12.5%;
+  margin-bottom: 20px;
+}
+
+#check {
+  grid-area: 1/1/span1/span 1;
+  padding-top: 30%;
+}
+
+#task {
+  grid-area: 1/2/span 1/span 1;
+  text-align: center;
+}
+
+#del-button {
+  grid-area: 1/3/span 1/span 1;
+  height: 40%;
+}
