@@ -1,52 +1,39 @@
-// import _ from 'lodash';
-import './style.css';
+// ----------------- Import Required Elements
+import taskList from './modules/taskarray.js';
+import * as element from './modules/elements.js';
+import * as taskFunction from './modules/functions.js';
 
-// Selection of Required Elements
-const todoList = document.querySelector('#display-tasks');
+// ----------------- Collect data from Local Storage
+const store = localStorage.getItem('listOfTasks');
 
-// Create Array to Populate DOM
-const taskList = [{
-  completed: 'false',
-  description: 'Clean My Room',
-  index: 0,
-},
-{
-  completed: 'false',
-  description: 'Feed the Chickens',
-  index: 1,
-},
-{
-  completed: 'false',
-  description: 'Finish Yesterday"s Project',
-  index: 2,
-},
-{
-  completed: 'false',
-  description: 'Wash dirty clothes',
-  index: 3,
-},
-{
-  completed: 'false',
-  description: 'Cook',
-  index: 4,
-},
-{
-  completed: 'false',
-  description: 'Watch todays Game',
-  index: 5,
-},
-];
-
-// Populate Task Section
-function populate() {
-  for (let index = 0; index < taskList.length; index++) { // eslint-disable-line
-    todoList.innerHTML += `<div id="shell">
-      <input type="checkbox" id="check"/>
-      <p id="task">${taskList[index].description}</p>
-      <button id="del-list">Remove</button>
-      </div>`;
-  }
+if (store) {
+	taskList.push(...JSON.parse(store));
+} else {
+	taskList;
 }
 
-// Call the function
-populate();
+// ------------------ Load Avaliable Tasks
+taskFunction.reloadTask();
+
+// ------------------ Event Listener for Add Button
+element.addBtn.addEventListener('click', () => {
+	const input = element.userInput.value;
+	const comp = 'false';
+	const index = taskList.length;
+taskFunction.addTask(input, comp, index);
+	taskFunction.loadTask(index);
+	localStorage.setItem('listOfTasks', JSON.stringify(taskList));
+});
+
+// --------------------- Event Listener to Remove Button
+element.taskContainer.addEventListener('click', (e) => {
+	if (e.target.classList.contains('remBtn')) {
+		const taskCon = e.target.parentElement;
+		const taskIndex = taskList.findIndex((t) => t.a === taskCon.querySelector('.task-item').innerText)
+		taskFunction.deleteTask(taskIndex);
+		element.taskContainer.removeChild(taskCon);
+		taskFunction.refreshIndex();
+		localStorage.setItem('listOfTasks', JSON.stringify(taskList));
+	}
+}
+)

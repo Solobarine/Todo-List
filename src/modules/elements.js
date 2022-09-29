@@ -1,4 +1,5 @@
-// Select Required Elements
-export const library = document.querySelector('#display-tasks');
-export const taskName = document.querySelector('#text');
+
+export const userInput = document.querySelector('.task-name');
 export const addBtn = document.querySelector('#addBtn');
+export const clearCompleted = document.querySelector('.clear-button');
+export const taskContainer = document.querySelector('.show-tasks');
