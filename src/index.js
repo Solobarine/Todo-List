@@ -2,6 +2,7 @@
 import taskList from './modules/taskarray.js';
 import * as element from './modules/elements.js';
 import * as taskFunction from './modules/functions.js';
+import './style.css';
 
 // ----------------- Collect data from Local Storage
 const store = localStorage.getItem('listOfTasks');
