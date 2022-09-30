@@ -1,6 +1,7 @@
 /* eslint-disable */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
+ mode: 'development',
   module: {
     rules: [
       {
@@ -16,5 +17,5 @@ module.exports = {
   ],
    devServer: {
     static: './dist',
-  },
+   },
 };
