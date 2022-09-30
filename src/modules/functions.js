@@ -3,7 +3,7 @@ import * as element from './elements.js';
 
 // Add Tasks to Array
 export const addTask = (x, y, z) => {
-  const obj = { a: x, b: y, c: z };
+  const obj = { description: x, completed: y, id: z };
   taskList.push(obj);
 };
 
@@ -11,7 +11,7 @@ export const addTask = (x, y, z) => {
 export const loadTask = (i) => {
   element.taskContainer.innerHTML += `<div class="shell">
                                      <input type="checkbox" class="checkbox"/>
-                                     <p class="task-item">${taskList[i].a}</p>
+                                     <p class="task-item">${taskList[i].description}</p>
                                      <button class="remBtn" type="button">Remove</button>
                                      </div>`;
 };
@@ -22,7 +22,7 @@ export const reloadTask = () => {
   for (let i = 0; i < taskList.length; i += 1) {
     element.taskContainer.innerHTML += `<div class="shell">
                                      <input type="checkbox" class="checkbox"/>
-                                     <p class="task-item">${taskList[i].a}</p>
+                                     <p class="task-item">${taskList[i].description}</p>
                                      <button class="remBtn" type="button">Remove</button>
                                      </div>`;
   }
@@ -36,6 +36,6 @@ export const deleteTask = (i) => {
 // Reload Task
 export const refreshIndex = () => {
   for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].c = i;
+    taskList[i].id = i;
   }
 };
