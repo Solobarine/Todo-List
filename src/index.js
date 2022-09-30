@@ -27,7 +27,7 @@ element.addBtn.addEventListener('click', () => {
 });
 
 // ------------------ Check the Box if b is set to true
-for (let i = 0; i < taskList.length; i++) {
+for (let i = 0; i < taskList.length; i += 1) {
   if (taskList[i].b === true) {
     element.taskContainer.children[i].children[0].checked = true;
     element.taskContainer.children[i].classList.add('change-color');
@@ -37,22 +37,21 @@ for (let i = 0; i < taskList.length; i++) {
   }
 }
 
-//-----------------  Event Listener for CheckBox
+// -----------------  Event Listener for CheckBox
 element.taskContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('checkbox')) {
+  if (e.target.classList.contains('checkbox')) {
     const checkItem = e.target.parentElement;
     const item = e.target.parentElement.children[0];
     const checkIndex = taskList.findIndex((c) => c.a === checkItem.querySelector('.task-item').innerText);
     taskList[checkIndex].b = item.checked;
     if (item.checked === true) {
       element.taskContainer.children[checkIndex].children[1].style.textDecoration = 'line-through';
-      checkItem.classList.add('change-color')
+      checkItem.classList.add('change-color');
       } else {
-        element.taskContainer.children[checkIndex].children[1].style.textDecoration = 'none';
-        checkItem.classList.remove('change-color')
+      element.taskContainer.children[checkIndex].children[1].style.textDecoration = 'none';
+      checkItem.classList.remove('change-color');
     }
-      localStorage.setItem('listOfTasks', JSON.stringify(taskList));
-      console.log(taskList);
+    localStorage.setItem('listOfTasks', JSON.stringify(taskList));
   }
 });
 
@@ -68,7 +67,7 @@ element.taskContainer.addEventListener('click', (e) => {
   }
 });
 
-// ---------------------- Edit To Do 
+// ---------------------- Edit To Do
 element.taskContainer.addEventListener('click', (e) => {
   if (e.target.classList.contains('task-item')) {
     const repParent = e.target.parentElement;
@@ -89,7 +88,7 @@ element.taskContainer.addEventListener('click', (e) => {
         localStorage.setItem('listOfTasks', JSON.stringify(taskList));
       }
       localStorage.setItem('listOfTasks', JSON.stringify(taskList));
-    })
+    });
   }
 });
 
