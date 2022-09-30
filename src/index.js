@@ -47,7 +47,7 @@ element.taskContainer.addEventListener('click', (e) => {
     if (item.checked === true) {
       element.taskContainer.children[checkIndex].children[1].style.textDecoration = 'line-through';
       checkItem.classList.add('change-color');
-      } else {
+    } else {
       element.taskContainer.children[checkIndex].children[1].style.textDecoration = 'none';
       checkItem.classList.remove('change-color');
     }
